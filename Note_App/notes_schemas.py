@@ -3,8 +3,6 @@ from pydantic import BaseModel
 class PadBase(BaseModel):
     title: str
     content: str | None = None
-class PadCreate(PadBase):
-    pass
 class Pad(PadBase):
     id: int
 
