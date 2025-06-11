@@ -17,7 +17,7 @@ def welcome_page():
     return {"message" : "Welcome to the note taking app!"}
 
 @app.post("/create-pad/", response_model = schemas.Pad, status_code = status.HTTP_201_CREATED)
-def create_pad(pad: schemas.PadCreate, db: Session = Depends(database.get_db)):
+def create_pad(pad: schemas.PadBase, db: Session = Depends(database.get_db)):
     db_pad = db.query(models.Pad).filter(models.Pad.title == pad.title).first()
     if db_pad:
         raise HTTPException(status_code = status.HTTP_400_BAD_REQUEST, detail = "Pad title already used")
