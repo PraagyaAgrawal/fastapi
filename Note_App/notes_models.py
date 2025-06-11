@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
-from .test_db import Base
+from .notes_db import Base
 
 class Pad(Base):
     __tablename__ = "pads"
